@@ -1,6 +1,0 @@
-c4e2dd64604bc7cfafd57d1592e6e66e2c067d0c | John Barbieri | 2025-07-05 18:22:13 -0300 | feat: implement Movies, People, and SearchStats controllers with corresponding serializers and service methods
-d9b652bc1618116be3d6d4ff6825998638f50585 | John Barbieri | 2025-07-05 18:22:01 -0300 | feat: add dotenv-rails, faraday, sidekiq, and redis to Gemfile and Gemfile.lock
-fe0992556ec58582ddeb659870cd307a058f9293 | John Barbieri | 2025-07-05 18:21:49 -0300 | fix: search_stats migration
-5a6ed9f511d19ea7151e8b30420f27ee7a9a72dd | John Barbieri | 2025-07-05 17:29:27 -0300 | feat: add SearchStat model and migration for search_stats table
-f04d73f9be91772ed261e4a8c1a6a100c21ba48a | John Barbieri | 2025-07-05 17:29:18 -0300 | refactor: adjust backend Dockerfile for development env
-9fac7a36d813771594c73f798bd2db2afd747654 | John Barbieri | 2025-07-05 00:58:44 -0300 | feat: create monorepo
