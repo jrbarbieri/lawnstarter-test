@@ -5,11 +5,15 @@ export default function StyledBox({ children, ...props }) {
     <Box
       p="xl"
       bg="white"
+      mt="xl"
       style={{
-        boxShadow: "0 1px 0 0 red",
+        boxShadow: "0 3px 5px var(--mantine-color-warmGrey-0)",
         backgroundColor: "white",
         padding: "1.5rem",
-        borderRadius: "8px",
+        border: "solid 2px var(--mantine-color-warmGrey-0)",
+        borderRadius: "4px",
+        display: "flex",
+        flexDirection: "column",
       }}
       {...props}
     >

@@ -1,9 +1,14 @@
-import { Container } from "@mantine/core";
+import { Container, Flex } from "@mantine/core";
+import Search from "../components/Search";
+import Results from "../components/Results";
 
 export default function Home() {
   return (
     <Container>
-      <p>Pagina inicial</p>
+      <Flex justify="space-between" align="start">
+        <Search />
+        <Results />
+      </Flex>
     </Container>
   );
 }
