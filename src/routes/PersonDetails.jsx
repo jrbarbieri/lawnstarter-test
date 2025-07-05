@@ -1,6 +1,6 @@
 import { Box, Button, Divider, Flex, Text } from "@mantine/core";
 import StyledBox from "../components/StyledBox";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function PersonDetails() {
   const navigate = useNavigate();
@@ -8,7 +8,7 @@ export default function PersonDetails() {
   return (
     <StyledBox w={810} h={410} mx="auto">
       <Text variant="title">Bib fortuna</Text>
-      <Flex gap={100} align="start" mt={30}>
+      <Flex gap={100} align="start" mt="xl" mb="xl">
         <Box style={{ flex: 1 }}>
           <Text variant="subtitle">Details</Text>
           <Divider mt={10} mb={5} />
@@ -29,7 +29,9 @@ export default function PersonDetails() {
         <Box style={{ flex: 1 }}>
           <Text variant="subtitle">Movies</Text>
           <Divider mt={10} mb={5} />
-          <Text>Return of the Jedi</Text>
+          <Button variant="linkText" component={Link} to="/movie">
+            Return of the Jedi
+          </Button>
         </Box>
       </Flex>
       <Button onClick={() => navigate("/")} w={200} mt="auto">

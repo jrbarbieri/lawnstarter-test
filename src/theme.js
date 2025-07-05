@@ -45,26 +45,31 @@ export const theme = createTheme({
         variant: "filled",
         color: "green.0",
         radius: 24,
-        style: { textTransform: "uppercase" },
       },
-      variants: {
-        filled: (theme) => ({
-          root: {
-            backgroundColor: theme.colors.green[0],
+      styles: (theme, props) => ({
+        root: {
+          ...(props.variant === "filled" && {
             color: "#fff",
             borderRadius: 24,
-            "&:hover:not([data-disabled])": {
-              backgroundColor: theme.colors.green[7],
-            },
+            textTransform: "uppercase",
             "&[data-disabled]": {
               backgroundColor: theme.colors.lightGrey[0],
               color: theme.colors.darkGray[0],
               cursor: "not-allowed",
               opacity: 0.7,
             },
-          },
-        }),
-      },
+          }),
+          ...(props.variant === "linkText" && {
+            color: theme.colors.green[0],
+            borderRadius: 0,
+            padding: 0,
+            textDecoration: "underline",
+            height: "auto",
+            backgroundColor: "transparent",
+            cursor: "pointer",
+          }),
+        },
+      }),
     },
   },
 });
