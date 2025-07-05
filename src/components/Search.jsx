@@ -7,8 +7,8 @@ export default function Search() {
       <Text>What are you searching for?</Text>
       <Radio.Group>
         <Group gap="xl" mt="md" mb="md">
-          <Radio color="headerGreen.0" value="people" label="People" />
-          <Radio color="headerGreen.0" value="movies" label="Movies" />
+          <Radio color="green.0" value="people" label="People" />
+          <Radio color="green.0" value="movies" label="Movies" />
         </Group>
       </Radio.Group>
       <Input placeholder="e.g. Chewbacca, Yoda, Boba Fett" />

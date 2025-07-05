@@ -3,20 +3,33 @@ import Header from "./components/Header";
 import Home from "./routes/Home.jsx";
 import PersonDetails from "./routes/PersonDetails.jsx";
 import MovieDetails from "./routes/MovieDetails.jsx";
-import { Container } from "@mantine/core";
+import { Container, Box } from "@mantine/core";
 
 function App() {
   return (
-    <>
-      <Header />
-      <Container>
+    <Container
+      p={0}
+      fluid
+      h="100vh"
+      style={{ display: "flex", flexDirection: "column" }}
+    >
+      <Header style={{ flexShrink: 0 }} />
+      <Box
+        style={{
+          flex: 1,
+          width: "100%",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+        }}
+      >
         <Routes>
           <Route path="/" element={<Home />}></Route>
           <Route path="/person" element={<PersonDetails />}></Route>
           <Route path="/movie" element={<MovieDetails />}></Route>
         </Routes>
-      </Container>
-    </>
+      </Box>
+    </Container>
   );
 }
 

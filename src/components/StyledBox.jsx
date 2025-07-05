@@ -1,6 +1,25 @@
 import { Box } from "@mantine/core";
+import { useIsMobile } from "../hooks/useIsMobile";
 
 export default function StyledBox({ children, ...props }) {
+  const isMobile = useIsMobile();
+
+  if (isMobile) {
+    return (
+      <Box
+        w="100%"
+        h="100%"
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          padding: "30px",
+        }}
+      >
+        {children}
+      </Box>
+    );
+  }
+
   return (
     <Box
       p="xl"
