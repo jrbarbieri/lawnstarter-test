@@ -17,12 +17,11 @@ services:
       dockerfile: Dockerfile
     volumes:
       - ./frontend:/app
-      - /app/node_modules
     ports:
       - "5173:5173"
     environment:
       - NODE_ENV=development
-    command: yarn dev --host
+    command: sh -c "yarn install && yarn dev --host"
 
   db:
     image: postgres:16
