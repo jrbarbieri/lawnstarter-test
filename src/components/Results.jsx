@@ -3,7 +3,7 @@ import { Container, Button, Divider, Flex, Text } from "@mantine/core";
 import StyledBox from "./StyledBox";
 import { useNavigate } from "react-router-dom";
 
-export default function Results({ data }) {
+export default function Results({ data, onBack }) {
   const navigate = useNavigate();
 
   return (
@@ -33,6 +33,11 @@ export default function Results({ data }) {
             Use the form to search for People or Movies.
           </Text>
         </Flex>
+      )}
+      {onBack && (
+        <Button onClick={onBack} mt="auto">
+          Back to search
+        </Button>
       )}
     </StyledBox>
   );
