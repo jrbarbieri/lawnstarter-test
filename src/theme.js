@@ -47,7 +47,13 @@ export const theme = createTheme({
         radius: 24,
       },
       styles: (theme, props) => ({
+        inner: {
+          height: "35px",
+          minHeight: "35px",
+        },
         root: {
+          height: "35px",
+          minHeight: "35px",
           ...(props.variant === "filled" && {
             color: "#fff",
             borderRadius: 24,

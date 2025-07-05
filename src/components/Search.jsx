@@ -56,6 +56,7 @@ export default function Search({ onResults }) {
           placeholder="e.g. Chewbacca, Yoda, Boba Fett"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
+          required
         />
         <Button fullWidth mt="auto" type="submit">
           Search

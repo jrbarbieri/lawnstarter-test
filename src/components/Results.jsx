@@ -7,10 +7,10 @@ export default function Results({ data, onBack }) {
   const navigate = useNavigate();
 
   return (
-    <StyledBox ml={30} h={600} w={600}>
+    <StyledBox ml="xl" h={600} w={600}>
       <Text variant="title">Results</Text>
       <Divider />
-      <Box mb="xl">
+      <Box mb="xl" h="100%">
         {data.length > 0 ? (
           data.map((character, idx) => {
             const isLast = idx === data.length - 1 && !onBack;
@@ -29,8 +29,8 @@ export default function Results({ data, onBack }) {
             );
           })
         ) : (
-          <Flex justify="center" align="center" h="100%">
-            <Text align="center" c="lightGrey.0">
+          <Flex justify="center" align="center" h="100%" w="100%">
+            <Text align="center" c="lightGrey.1" fw={700}>
               There are zero matches.
               <br />
               Use the form to search for People or Movies.
