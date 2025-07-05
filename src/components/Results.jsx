@@ -1,7 +1,30 @@
 import React from "react";
-import { Container, Button, Divider, Flex, Text, Box } from "@mantine/core";
+import { Button, Divider, Flex, Text, Box } from "@mantine/core";
 import StyledBox from "./StyledBox";
 import { useNavigate } from "react-router-dom";
+import { useIsMobile } from "../hooks/useIsMobile";
+
+const ResultCard = ({ character, onClick }) => {
+  const isMobile = useIsMobile();
+
+  if (isMobile) {
+    return (
+      <Flex direction="column" align="stretch" mb="md" mt="md">
+        <Text variant="subtitle">{character?.name || character?.title}</Text>
+        <Button onClick={onClick} mt="md">
+          See Details
+        </Button>
+      </Flex>
+    );
+  } else {
+    return (
+      <Flex justify="space-between" align="center" mb="sm" mt="sm">
+        <Text variant="subtitle">{character?.name || character?.title}</Text>
+        <Button onClick={onClick}>See Details</Button>
+      </Flex>
+    );
+  }
+};
 
 export default function Results({ data, onBack }) {
   const navigate = useNavigate();
@@ -16,14 +39,10 @@ export default function Results({ data, onBack }) {
             const isLast = idx === data.length - 1 && !onBack;
             return (
               <React.Fragment key={idx}>
-                <Flex justify="space-between" align="center" mb="sm" mt="sm">
-                  <Text variant="subtitle">
-                    {character?.name || character?.title}
-                  </Text>
-                  <Button onClick={() => navigate("/person")}>
-                    See Details
-                  </Button>
-                </Flex>
+                <ResultCard
+                  character={character}
+                  onClick={() => navigate("/person")}
+                />
                 {!isLast && <Divider />}
               </React.Fragment>
             );
