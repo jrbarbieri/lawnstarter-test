@@ -9,7 +9,7 @@ export default function Header() {
       ta="center"
       justify="center"
       style={{
-        boxShadow: "0 2px 0 0 var(--mantine-color-lightGrey-0)",
+        boxShadow: "0 2px 0 0 var(--mantine-color-green-0)",
         backgroundColor: "white",
       }}
     >
