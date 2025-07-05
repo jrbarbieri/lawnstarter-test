@@ -10,13 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_07_05_191235) do
+ActiveRecord::Schema[8.0].define(version: 2025_07_05_205130) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
   create_table "search_stats", force: :cascade do |t|
+    t.string "kind"
     t.string "query"
+    t.integer "count"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["kind", "query"], name: "index_search_stats_on_kind_and_query", unique: true
   end
 end
