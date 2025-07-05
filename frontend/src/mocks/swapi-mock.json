@@ -1,0 +1,102 @@
+{
+  "people": [
+    {
+      "name": "Luke Skywalker",
+      "uid": "1",
+      "url": "https://swapi.tech/api/people/1",
+      "films": ["A New Hope", "The Empire Strikes Back", "Return of the Jedi", "Revenge of the Sith"]
+    },
+    {
+      "name": "C-3PO",
+      "uid": "2",
+      "url": "https://swapi.tech/api/people/2",
+      "films": ["A New Hope", "The Empire Strikes Back", "Return of the Jedi", "The Phantom Menace", "Attack of the Clones", "Revenge of the Sith"]
+    },
+    {
+      "name": "R2-D2",
+      "uid": "3",
+      "url": "https://swapi.tech/api/people/3",
+      "films": ["A New Hope", "The Empire Strikes Back", "Return of the Jedi", "The Phantom Menace", "Attack of the Clones", "Revenge of the Sith"]
+    },
+    {
+      "name": "Darth Vader",
+      "uid": "4",
+      "url": "https://swapi.tech/api/people/4",
+      "films": ["A New Hope", "The Empire Strikes Back", "Return of the Jedi", "Revenge of the Sith"]
+    },
+    {
+      "name": "Leia Organa",
+      "uid": "5",
+      "url": "https://swapi.tech/api/people/5",
+      "films": ["A New Hope", "The Empire Strikes Back", "Return of the Jedi", "Revenge of the Sith"]
+    },
+    {
+      "name": "Obi-Wan Kenobi",
+      "uid": "10",
+      "url": "https://swapi.tech/api/people/10",
+      "films": ["A New Hope", "The Empire Strikes Back", "Return of the Jedi", "The Phantom Menace", "Attack of the Clones", "Revenge of the Sith"]
+    },
+    {
+      "name": "Chewbacca",
+      "uid": "13",
+      "url": "https://swapi.tech/api/people/13",
+      "films": ["A New Hope", "The Empire Strikes Back", "Return of the Jedi", "Revenge of the Sith"]
+    },
+    {
+      "name": "Han Solo",
+      "uid": "14",
+      "url": "https://swapi.tech/api/people/14",
+      "films": ["A New Hope", "The Empire Strikes Back", "Return of the Jedi"]
+    },
+    {
+      "name": "Yoda",
+      "uid": "20",
+      "url": "https://swapi.tech/api/people/20",
+      "films": ["The Empire Strikes Back", "Return of the Jedi", "The Phantom Menace", "Attack of the Clones", "Revenge of the Sith"]
+    },
+    {
+      "name": "Boba Fett",
+      "uid": "22",
+      "url": "https://swapi.tech/api/people/22",
+      "films": ["The Empire Strikes Back", "Return of the Jedi", "Attack of the Clones"]
+    }
+  ],
+  "movies": [
+    {
+      "title": "A New Hope",
+      "uid": "1",
+      "url": "https://swapi.tech/api/films/1",
+      "release_date": "1977-05-25"
+    },
+    {
+      "title": "The Empire Strikes Back",
+      "uid": "2",
+      "url": "https://swapi.tech/api/films/2",
+      "release_date": "1980-05-17"
+    },
+    {
+      "title": "Return of the Jedi",
+      "uid": "3",
+      "url": "https://swapi.tech/api/films/3",
+      "release_date": "1983-05-25"
+    },
+    {
+      "title": "The Phantom Menace",
+      "uid": "4",
+      "url": "https://swapi.tech/api/films/4",
+      "release_date": "1999-05-19"
+    },
+    {
+      "title": "Attack of the Clones",
+      "uid": "5",
+      "url": "https://swapi.tech/api/films/5",
+      "release_date": "2002-05-16"
+    },
+    {
+      "title": "Revenge of the Sith",
+      "uid": "6",
+      "url": "https://swapi.tech/api/films/6",
+      "release_date": "2005-05-19"
+    }
+  ]
+}

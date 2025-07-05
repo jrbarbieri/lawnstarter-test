@@ -1,0 +1,77 @@
+# === GLOBAL ===
+
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+.vite/
+dist/
+
+# macOS
+.DS_Store
+
+# IDEs/Editors
+.vscode/
+.idea/
+*.swp
+
+# Logs
+*.log
+logs/
+log/
+
+# System files
+Thumbs.db
+ehthumbs.db
+
+# dotenv
+.env
+.env.*
+
+
+# === FRONTEND (React - Vite/CRA/etc) ===
+/frontend/node_modules/
+/frontend/dist/
+/frontend/build/
+/frontend/.next/
+/frontend/.turbo/
+/frontend/.parcel-cache/
+/frontend/.eslintcache
+/frontend/.env
+/frontend/.env.*
+
+# === BACKEND (Rails) ===
+/backend/log/*
+!/backend/log/.keep
+/backend/tmp/*
+!/backend/tmp/.keep
+/backend/storage/*
+!/backend/storage/.keep
+/backend/vendor/bundle
+/backend/.bundle/
+/backend/db/*.sqlite3
+/backend/db/*.sqlite3-journal
+/backend/public/packs
+/backend/public/assets
+/backend/public/uploads
+/backend/node_modules/
+/backend/yarn-error.log
+/backend/.env
+/backend/.env.*
+
+# Byebug and Pry history
+/backend/.byebug_history
+/backend/.pry_history
+
+# IDE config again (in case rodou em subpastas)
+**/.idea/
+**/.vscode/
+**/.DS_Store
+
+# Sorbet (caso use)
+.sorbet/
+
+# Coverage
+/coverage/
