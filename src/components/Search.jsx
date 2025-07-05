@@ -57,6 +57,7 @@ export default function Search({ onResults }) {
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           required
+          autoFocus
         />
         <Button fullWidth mt="auto" type="submit">
           Search
