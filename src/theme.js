@@ -71,5 +71,14 @@ export const theme = createTheme({
         },
       }),
     },
+    Radio: {
+      styles: {
+        label: {
+          fontWeight: 700,
+          fontSize: "14px",
+          fontFamily: "Montserrat, sans-serif",
+        },
+      },
+    },
   },
 });
