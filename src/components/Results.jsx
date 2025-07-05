@@ -29,6 +29,16 @@ const ResultCard = ({ character, onClick }) => {
 export default function Results({ data, onBack }) {
   const navigate = useNavigate();
 
+  function handleSeeDetails(character) {
+    if (character.name) {
+      // Pessoa
+      navigate(`/person/${character.uid}`);
+    } else if (character.title) {
+      // Filme
+      navigate(`/movie/${character.uid}`);
+    }
+  }
+
   return (
     <StyledBox ml="xl" h={600} w={600}>
       <Text variant="title">Results</Text>
@@ -38,10 +48,10 @@ export default function Results({ data, onBack }) {
           data.map((character, idx) => {
             const isLast = idx === data.length - 1 && !onBack;
             return (
-              <React.Fragment key={idx}>
+              <React.Fragment key={character.uid || idx}>
                 <ResultCard
                   character={character}
-                  onClick={() => navigate("/person")}
+                  onClick={() => handleSeeDetails(character)}
                 />
                 {!isLast && <Divider />}
               </React.Fragment>

@@ -1,4 +1,4 @@
-import { Box, Button, Flex, Text, Image } from "@mantine/core";
+import { Box, Button, Text, Image } from "@mantine/core";
 import { useIsMobile } from "../hooks/useIsMobile";
 import { useLocation } from "react-router-dom";
 
@@ -23,11 +23,11 @@ export default function Header() {
     >
       {showBack && (
         <Button
-          variant="linkText"
           style={{
             textDecoration: "none",
             fontSize: "1.2rem",
             position: "absolute",
+            backgroundColor: "transparent",
             left: 30,
             top: "50%",
             transform: "translateY(-50%)",

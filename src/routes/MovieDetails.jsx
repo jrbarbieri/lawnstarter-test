@@ -1,27 +1,36 @@
 import DetailsLayout from "../components/DetailsLayout";
 import { Divider, Text } from "@mantine/core";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
+import swapiMock from "../mocks/swapi-mock.json";
+import React from "react";
+import LinkButton from "../components/LinkButton";
 
 export default function MovieDetails() {
   const navigate = useNavigate();
+  const { uid } = useParams();
+  const movie = swapiMock.movies.find((m) => m.uid === uid);
+
+  if (!movie) {
+    return <Text>Movie not found.</Text>;
+  }
+
+  const characters = swapiMock.people.filter((p) =>
+    p.films.includes(movie.title)
+  );
 
   const leftBlock = (
     <>
-      <Text variant="subtitle">Opening Crawl</Text>
+      <Text variant="subtitle">Details</Text>
       <Divider mt={10} mb={5} />
       <Text>
-        Luke Skywalker has returned to his home planet of Tatooine in an attempt
-        to rescue his friend Han Solo from the clutches of the vile gangster
-        Jabba the Hutt.
-      </Text>
-      <Text mt={10}>
-        Little does Luke know that the GALACTIC EMPIRE has secretly begun
-        construction on a new armored space station even more powerful than the
-        first dreaded Death Star.
-      </Text>
-      <Text mt={10}>
-        When completed, this ultimate weapon will spell certain doom for the
-        small band of rebels struggling to restore freedom to the galaxy...
+        Title: {movie.title}
+        <br />
+        Release Date: {movie.release_date}
+        <br />
+        URL:{" "}
+        <a href={movie.url} target="_blank" rel="noopener noreferrer">
+          {movie.url}
+        </a>
       </Text>
     </>
   );
@@ -30,18 +39,26 @@ export default function MovieDetails() {
     <>
       <Text variant="subtitle">Characters</Text>
       <Divider mt={10} mb={5} />
-      <Text>
-        Luke Skywalker, Jabba Desiliijiic Tiure, Wedge Antilles, Jek Tono
-        Porkins, Raymus Antilles, C-3PO, R2-D2, Darth Vader, Bib Fortuna, Leia
-        Organa, Owen Lars, Beru Whitesun Lars, R5-D4, Biggs Darklight, Obi-Wan
-        Kenobi, Wilhuff Tarkin, Chewbacca, Han Solo
-      </Text>
+      {characters.length > 0 ? (
+        <Text>
+          {characters.map((person, idx) => (
+            <React.Fragment key={person.uid}>
+              <LinkButton to={`/person/${person.uid}`}>
+                {person.name}
+              </LinkButton>
+              {idx < characters.length - 1 && ", "}
+            </React.Fragment>
+          ))}
+        </Text>
+      ) : (
+        <Text>No characters found.</Text>
+      )}
     </>
   );
 
   return (
     <DetailsLayout
-      title="Return of the Jedi"
+      title={movie.title}
       leftBlock={leftBlock}
       rightBlock={rightBlock}
       buttonText="Back to search"

@@ -25,7 +25,7 @@ export default function Home() {
 
   return (
     <Flex justify="space-between" align="start">
-      <Search onResults={setResults} />
+      <Search onResults={handleResults} />
       <Results data={results} />
     </Flex>
   );
