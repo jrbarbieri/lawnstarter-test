@@ -9,7 +9,7 @@ function App() {
   return (
     <>
       <Header />
-      <Container variant="app">
+      <Container>
         <Routes>
           <Route path="/" element={<Home />}></Route>
           <Route path="/person" element={<PersonDetails />}></Route>

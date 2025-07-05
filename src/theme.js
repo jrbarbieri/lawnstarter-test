@@ -2,26 +2,13 @@ import { createTheme } from "@mantine/core";
 
 export const theme = createTheme({
   colors: {
-    warmGrey: ["#dadada"],
-    headerGreen: [
-      "#0ab463",
-      "#0ab463",
-      "#0ab463",
-      "#0ab463",
-      "#0ab463",
-      "#0ab463",
-      "#0ab463",
-      "#088c4a",
-      "#088c4a",
-      "#088c4a",
-    ],
+    green: ["#0ab463", "#088c4a"],
+    lightGrey: ["#dadada", "#c4c4c4"],
     darkGray: ["#383838"],
-    black: ["#000000"],
   },
   components: {
     Text: {
       defaultProps: {
-        fw: 400,
         ff: "Montserrat, sans-serif",
         variant: "default",
         m: 0,
@@ -30,39 +17,47 @@ export const theme = createTheme({
         root: {
           letterSpacing: "normal",
           ...(props.variant === "default" && {
-            color: theme.colors.darkGray[0],
-            fontSize: 18,
+            fontSize: 14,
           }),
           ...(props.variant === "header" && {
-            color: theme.colors.headerGreen[0],
+            color: theme.colors.green[0],
             fontSize: 24,
             fontWeight: 700,
           }),
           ...(props.variant === "title" && {
-            color: theme.colors.black[0],
             fontWeight: 600,
-            fontSize: 9,
+            fontSize: 18,
+          }),
+          ...(props.variant === "subtitle" && {
+            fontWeight: 600,
+            fontSize: 16,
           }),
         },
       }),
     },
+    Divider: {
+      defaultProps: {
+        color: "lightGrey.1",
+      },
+    },
     Button: {
       defaultProps: {
         variant: "filled",
-        color: "headerGreen",
+        color: "green.0",
         radius: 24,
+        style: { textTransform: "uppercase" },
       },
       variants: {
         filled: (theme) => ({
           root: {
-            backgroundColor: theme.colors.headerGreen[0],
+            backgroundColor: theme.colors.green[0],
             color: "#fff",
             borderRadius: 24,
             "&:hover:not([data-disabled])": {
-              backgroundColor: theme.colors.headerGreen[7],
+              backgroundColor: theme.colors.green[7],
             },
             "&[data-disabled]": {
-              backgroundColor: theme.colors.warmGrey[0],
+              backgroundColor: theme.colors.lightGrey[0],
               color: theme.colors.darkGray[0],
               cursor: "not-allowed",
               opacity: 0.7,
