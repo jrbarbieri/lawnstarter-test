@@ -1,5 +1,5 @@
 import StyledBox from "./StyledBox";
-import { Button, Group, Input, Radio, Text, Box } from "@mantine/core";
+import { Button, Group, TextInput, Radio, Text, Box } from "@mantine/core";
 import styled from "styled-components";
 import { useIsMobile } from "../hooks/useIsMobile";
 import { useState } from "react";
@@ -52,7 +52,7 @@ export default function Search({ onResults }) {
             <Radio color="green.0" value="movies" label="Movies" />
           </Group>
         </Radio.Group>
-        <Input
+        <TextInput
           placeholder="e.g. Chewbacca, Yoda, Boba Fett"
           value={query}
           onChange={(e) => setQuery(e.target.value)}

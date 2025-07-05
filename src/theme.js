@@ -40,6 +40,18 @@ export const theme = createTheme({
         color: "lightGrey.1",
       },
     },
+    TextInput: {
+      vars: (theme) => ({
+        input: {
+          "--input-bd-focus": theme.colors.green[0],
+        },
+      }),
+      styles: {
+        input: {
+          fontWeight: 700,
+        },
+      },
+    },
     Button: {
       defaultProps: {
         variant: "filled",
