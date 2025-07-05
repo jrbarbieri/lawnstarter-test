@@ -1,7 +1,10 @@
 import { Container, Button, Divider, Flex, Text } from "@mantine/core";
 import StyledBox from "./StyledBox";
+import { useNavigate } from "react-router-dom";
 
 export default function Results({ data }) {
+  const navigate = useNavigate();
+
   return (
     <StyledBox ml={30} h={600} w={600}>
       <Text variant="title">Results</Text>
@@ -18,7 +21,7 @@ export default function Results({ data }) {
                 mt="sm"
               >
                 <Text variant="subtitle">{data.name}</Text>
-                <Button>See Details</Button>
+                <Button onClick={() => navigate("/person")}>See Details</Button>
               </Flex>
               <Divider />
             </>
