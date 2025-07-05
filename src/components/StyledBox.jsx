@@ -33,6 +33,9 @@ export default function StyledBox({ children, ...props }) {
         borderRadius: "4px",
         display: "flex",
         flexDirection: "column",
+        overflowY: "auto",
+        scrollbarColor: "var(--mantine-color-green-0) white",
+        scrollbarWidth: "thin",
       }}
       {...props}
     >
