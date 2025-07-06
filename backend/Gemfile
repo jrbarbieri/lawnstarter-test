@@ -37,7 +37,8 @@ group :development, :test do
   gem "rubocop-rails-omakase", require: false
 end
 
-gem "dotenv-rails", "~> 3.1"
-gem "faraday", "~> 2.13"
-gem "sidekiq", "~> 8.0"
-gem "redis", "~> 5.4"
+gem "dotenv-rails"
+gem "faraday"
+gem "sidekiq"
+gem "redis"
+gem "rack-cors"
