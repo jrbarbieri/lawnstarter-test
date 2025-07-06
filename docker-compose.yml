@@ -8,8 +8,22 @@ services:
       - "3000:3000"
     environment:
       - RAILS_ENV=development
+      - REDIS_URL=redis://redis:6379/0
     depends_on:
       - db
+      - redis
+
+  sidekiq:
+    build: ./backend
+    command: bundle exec sidekiq -C config/sidekiq.yml
+    volumes:
+      - ./backend:/rails
+    environment:
+      - RAILS_ENV=development
+      - REDIS_URL=redis://redis:6379/0
+    depends_on:
+      - db
+      - redis
 
   frontend:
     build:
@@ -34,5 +48,13 @@ services:
     volumes:
       - pgdata:/var/lib/postgresql/data
 
+  redis:
+    image: redis:7
+    ports:
+      - "6379:6379"
+    volumes:
+      - redisdata:/data
+
 volumes:
   pgdata:
+  redisdata:
