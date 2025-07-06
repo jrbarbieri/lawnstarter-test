@@ -9,13 +9,4 @@ class MovieSerializer
       }
     end
   end
-
-  def self.single(response)
-    return nil unless response["result"].is_a?(Hash)
-
-    {
-      title: response["result"].dig("properties", "title"),
-      uid: response["result"]["uid"]
-    }
-  end
 end

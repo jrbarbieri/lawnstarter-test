@@ -9,13 +9,4 @@ class PeopleSerializer
       }
     end
   end
-
-  def self.single(response)
-    return nil unless response["result"].is_a?(Hash)
-
-    {
-      name: response["result"].dig("properties", "name"),
-      uid: response["result"]["uid"]
-    }
-  end
 end

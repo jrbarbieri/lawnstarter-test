@@ -23,6 +23,11 @@ class SwapiService
     JSON.parse(response.body)
   end
 
+  def self.raw_fetch(url)
+    response = Faraday.get(url)
+    JSON.parse(response.body)
+  end
+
   private
 
   def self.increment_stat(kind, query)

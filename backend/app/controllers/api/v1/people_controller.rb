@@ -6,9 +6,27 @@ module Api
         render json: ::PeopleSerializer.collection(results)
       end
 
-      def show
-        person = SwapiService.fetch_person(params[:id])
-        render json: ::PeopleSerializer.single(person)
+      def with_movies
+        person_id = params[:id]
+        person = SwapiService.fetch_person(person_id)
+        return render json: {}, status: :not_found unless person["result"]
+
+        all_movies = SwapiService.search_movies("")
+        matched_movies = all_movies["result"].select do |movie|
+          characters = movie.dig("properties", "characters") || []
+          characters.any? { |url| url.end_with?("/#{person_id}") }
+        end
+
+        render json: {
+          uid: person["result"]["uid"],
+          name: person["result"].dig("properties", "name"),
+          movies: matched_movies.map do |m|
+            {
+              uid: m["uid"],
+              title: m.dig("properties", "title")
+            }
+          end
+        }
       end
     end
   end
