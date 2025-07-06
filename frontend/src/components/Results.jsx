@@ -1,16 +1,16 @@
 import React from "react";
-import { Button, Divider, Flex, Text, Box } from "@mantine/core";
+import { Button, Divider, Flex, Text, Box, Loader } from "@mantine/core";
 import StyledBox from "./StyledBox";
 import { useNavigate } from "react-router-dom";
 import { useIsMobile } from "../hooks/useIsMobile";
 
-const ResultCard = ({ character, onClick }) => {
+const ResultCard = ({ record, onClick }) => {
   const isMobile = useIsMobile();
 
   if (isMobile) {
     return (
       <Flex direction="column" align="stretch" mb="md" mt="md">
-        <Text variant="subtitle">{character?.name || character?.title}</Text>
+        <Text variant="subtitle">{record?.name || record?.title}</Text>
         <Button onClick={onClick} mt="md">
           See Details
         </Button>
@@ -19,23 +19,21 @@ const ResultCard = ({ character, onClick }) => {
   } else {
     return (
       <Flex justify="space-between" align="center" mb="sm" mt="sm">
-        <Text variant="subtitle">{character?.name || character?.title}</Text>
+        <Text variant="subtitle">{record?.name || record?.title}</Text>
         <Button onClick={onClick}>See Details</Button>
       </Flex>
     );
   }
 };
 
-export default function Results({ data, onBack }) {
+export default function Results({ data, onBack, isLoading }) {
   const navigate = useNavigate();
 
-  function handleSeeDetails(character) {
-    if (character.name) {
-      // Pessoa
-      navigate(`/person/${character.uid}`);
-    } else if (character.title) {
-      // Filme
-      navigate(`/movie/${character.uid}`);
+  function handleSeeDetails(record) {
+    if (record.name) {
+      navigate(`/person/${record.uid}`);
+    } else if (record.title) {
+      navigate(`/movie/${record.uid}`);
     }
   }
 
@@ -44,14 +42,18 @@ export default function Results({ data, onBack }) {
       <Text variant="title">Results</Text>
       <Divider />
       <Box mb="xl" h="100%">
-        {data.length > 0 ? (
-          data.map((character, idx) => {
+        {isLoading ? (
+          <Flex justify="center" align="center" h="100%" w="100%">
+            <Loader color="green.0" size="lg" />
+          </Flex>
+        ) : data?.length > 0 ? (
+          data.map((record, idx) => {
             const isLast = idx === data.length - 1 && !onBack;
             return (
-              <React.Fragment key={character.uid || idx}>
+              <React.Fragment key={record.uid || idx}>
                 <ResultCard
-                  character={character}
-                  onClick={() => handleSeeDetails(character)}
+                  record={record}
+                  onClick={() => handleSeeDetails(record)}
                 />
                 {!isLast && <Divider />}
               </React.Fragment>

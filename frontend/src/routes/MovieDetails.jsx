@@ -1,36 +1,35 @@
 import DetailsLayout from "../components/DetailsLayout";
-import { Divider, Text } from "@mantine/core";
+import { Divider, Text, Loader, Flex } from "@mantine/core";
 import { useNavigate, useParams } from "react-router-dom";
-import swapiMock from "../mocks/swapi-mock.json";
 import React from "react";
 import LinkButton from "../components/LinkButton";
+import { useMovieWithCharacters } from "../hooks/useMovieWithCharacters";
 
 export default function MovieDetails() {
   const navigate = useNavigate();
   const { uid } = useParams();
-  const movie = swapiMock.movies.find((m) => m.uid === uid);
+  const { data, isLoading } = useMovieWithCharacters(uid);
 
-  if (!movie) {
-    return <Text>Movie not found.</Text>;
+  if (isLoading) {
+    return (
+      <Flex justify="center" align="center" h={400}>
+        <Loader color="green.0" size="lg" />
+      </Flex>
+    );
   }
 
-  const characters = swapiMock.people.filter((p) =>
-    p.films.includes(movie.title)
-  );
+  if (!data) {
+    return <Text>Movie not found.</Text>;
+  }
 
   const leftBlock = (
     <>
       <Text variant="subtitle">Details</Text>
       <Divider mt={10} mb={5} />
       <Text>
-        Title: {movie.title}
+        Title: {data.title}
         <br />
-        Release Date: {movie.release_date}
-        <br />
-        URL:{" "}
-        <a href={movie.url} target="_blank" rel="noopener noreferrer">
-          {movie.url}
-        </a>
+        UID: {data.uid}
       </Text>
     </>
   );
@@ -39,14 +38,14 @@ export default function MovieDetails() {
     <>
       <Text variant="subtitle">Characters</Text>
       <Divider mt={10} mb={5} />
-      {characters.length > 0 ? (
+      {data.characters && data.characters.length > 0 ? (
         <Text>
-          {characters.map((person, idx) => (
+          {data.characters.map((person, idx) => (
             <React.Fragment key={person.uid}>
               <LinkButton to={`/person/${person.uid}`}>
                 {person.name}
               </LinkButton>
-              {idx < characters.length - 1 && ", "}
+              {idx < data.characters.length - 1 && ", "}
             </React.Fragment>
           ))}
         </Text>
@@ -58,7 +57,7 @@ export default function MovieDetails() {
 
   return (
     <DetailsLayout
-      title={movie.title}
+      title={data.title}
       leftBlock={leftBlock}
       rightBlock={rightBlock}
       buttonText="Back to search"

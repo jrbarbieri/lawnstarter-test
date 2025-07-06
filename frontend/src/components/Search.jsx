@@ -3,7 +3,6 @@ import { Button, Group, TextInput, Radio, Text, Box } from "@mantine/core";
 import styled from "styled-components";
 import { useIsMobile } from "../hooks/useIsMobile";
 import { useState } from "react";
-import swapiMock from "../mocks/swapi-mock.json";
 
 const StyledText = styled(Text)`
   @media (min-width: 48em) {
@@ -19,15 +18,8 @@ export default function Search({ onResults }) {
 
   function handleSearch(e) {
     if (e) e.preventDefault();
-    const data =
-      searchType === "people"
-        ? swapiMock.people.filter((p) =>
-            p.name.toLowerCase().includes(query.trim().toLowerCase())
-          )
-        : swapiMock.movies.filter((m) =>
-            m.title.toLowerCase().includes(query.trim().toLowerCase())
-          );
-    if (onResults) onResults(data);
+
+    if (onResults) onResults({ type: searchType, query });
   }
 
   return (
