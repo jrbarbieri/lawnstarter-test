@@ -27,9 +27,19 @@ export default function PersonDetails() {
       <Text variant="subtitle">Details</Text>
       <Divider mt={10} mb={5} />
       <Text>
-        Name: {data.name}
+        <b>Name:</b> {data.name}
         <br />
-        UID: {data.uid}
+        <b>Birth year:</b> {data.details.birth_year}
+        <br />
+        <b>Eye color:</b> {data.details.eye_color}
+        <br />
+        <b>Gender:</b> {data.details.gender}
+        <br />
+        <b>Hair color:</b> {data.details.hair_color}
+        <br />
+        <b>Height:</b> {data.details.height} m
+        <br />
+        <b>Mass:</b> {data.details.mass} kg
       </Text>
     </>
   );

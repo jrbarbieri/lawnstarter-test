@@ -25,10 +25,19 @@ module Api
           end
         end.map(&:value).compact
 
+        details = movie.dig("result", "properties") || {}
+
         render json: {
           title: movie["result"].dig("properties", "title"),
           uid: movie["result"]["uid"],
-          characters: characters
+          characters: characters,
+          details: {
+            producer: details["producer"],
+            title: details["title"],
+            director: details["director"],
+            release_date: details["release_date"],
+            opening_crawl: details["opening_crawl"]
+          }
         }
       end
     end

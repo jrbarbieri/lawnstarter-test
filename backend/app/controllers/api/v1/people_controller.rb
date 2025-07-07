@@ -17,6 +17,10 @@ module Api
           characters.any? { |url| url.end_with?("/#{person_id}") }
         end
 
+        props = person.dig("result", "properties") || {}
+        height_m = props["height"].to_f / 100 if props["height"]
+        mass_kg = props["mass"].to_f if props["mass"]
+
         render json: {
           uid: person["result"]["uid"],
           name: person["result"].dig("properties", "name"),
@@ -25,7 +29,15 @@ module Api
               uid: m["uid"],
               title: m.dig("properties", "title")
             }
-          end
+          end,
+          details: {
+            birth_year: props["birth_year"],
+            eye_color: props["eye_color"],
+            gender: props["gender"],
+            hair_color: props["hair_color"],
+            height: height_m,
+            mass: mass_kg
+          }
         }
       end
     end

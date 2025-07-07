@@ -27,9 +27,28 @@ export default function MovieDetails() {
       <Text variant="subtitle">Details</Text>
       <Divider mt={10} mb={5} />
       <Text>
-        Title: {data.title}
+        {data.details.opening_crawl
+          .split(/\r?\n/)
+          .filter((line) => line.trim() !== "")
+          .map((line, idx) => (
+            <React.Fragment key={idx}>
+              {line}
+              <br />
+            </React.Fragment>
+          ))}
         <br />
-        UID: {data.uid}
+        <b>Title:</b> {data.title}
+        <br />
+        <b>Producer:</b> {data.details.producer}
+        <br />
+        <b>Director:</b> {data.details.director}
+        <br />
+        <b>Release date:</b>{" "}
+        {new Date(data.details.release_date).toLocaleDateString("en-US", {
+          year: "numeric",
+          month: "long",
+          day: "numeric",
+        })}
       </Text>
     </>
   );
