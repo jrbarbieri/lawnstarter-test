@@ -28,8 +28,6 @@ ehthumbs.db
 
 # dotenv
 .env
-.env.*
-
 
 # === FRONTEND (React - Vite/CRA/etc) ===
 /frontend/node_modules/

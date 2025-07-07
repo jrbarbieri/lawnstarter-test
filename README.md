@@ -48,7 +48,15 @@ The application allows you to search for movies and characters from the Star War
    cd monorepo
    ```
 
-2. **Start all services:**
+2. **Configure environment variables:**
+   - For both the backend and frontend, copy the sample environment files to create your own `.env` files:
+     ```sh
+     cp backend/.env.sample backend/.env
+     cp frontend/.env.sample frontend/.env
+     ```
+   - Make sure the contents of your `.env` files match the respective `.env.sample` files. Adjust values only if you need to override any defaults.
+
+3. **Start all services:**
    ```sh
    docker-compose up --build
    ```
@@ -58,11 +66,11 @@ The application allows you to search for movies and characters from the Star War
    - Start PostgreSQL and Redis
    - Start Sidekiq for background jobs
 
-3. **Access the application:**
+4. **Access the application:**
    - Frontend: [http://localhost:5173](http://localhost:5173)
    - Backend/API: [http://localhost:3000](http://localhost:3000)
 
-4. **(Optional/first run) Prepare database:**
+5. **(Optional/first run) Prepare database:**
    - Enter the backend container:
      ```sh
      docker-compose exec backend bash
