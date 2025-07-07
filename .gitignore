@@ -40,7 +40,6 @@ ehthumbs.db
 /frontend/.parcel-cache/
 /frontend/.eslintcache
 /frontend/.env
-/frontend/.env.*
 
 # === BACKEND (Rails) ===
 /backend/log/*
@@ -59,7 +58,6 @@ ehthumbs.db
 /backend/node_modules/
 /backend/yarn-error.log
 /backend/.env
-/backend/.env.*
 
 # Byebug and Pry history
 /backend/.byebug_history
