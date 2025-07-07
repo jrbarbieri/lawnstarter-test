@@ -77,7 +77,7 @@ The application allows you to search for movies and characters from the Star War
      ```
    - Prepare database and seeds:
      ```sh
-     bundle exec rails db:setup
+     bundle exec rails db:create
      bundle exec rails db:migrate
      bundle exec rails db:seed # optional, only if you want initial query stats
      ```
