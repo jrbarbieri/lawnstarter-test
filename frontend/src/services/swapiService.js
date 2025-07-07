@@ -9,7 +9,7 @@ const swapiService = {
   getMovies: (params) => api.get("/movies", { params }),
   getMovieWithCharacters: (id) => api.get(`/movies/${id}/with_characters`),
   getPersonWithMovies: (id) => api.get(`/people/${id}/with_movies`),
-  getSearchStats: (params) => api.get("/search_stats", { params }),
+  getSearchStats: () => api.get("/search_stats"),
 };
 
 export default swapiService;
